@@ -1,0 +1,145 @@
+﻿<h2>Application Form</h2>
+<title>Application Form</title>
+<body>
+    <div class=" col-md-9 col-lg-9 ">
+        <table class="table table-user-information" id="UserInformation">
+            <tbody data-bind="with: User">
+                <tr>
+                    <td style="vertical-align: middle !important">
+                        Name <span style="color: red">*</span>
+                    </td>
+                    <td>
+                        <input type="text" id="txtAppraiserName" data-bind="value:Name" class="form-control Commafullstop Textlengthpast" maxlength="55">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle !important">
+                        Address
+                    </td>
+                    <td>
+                        <input type="text" id="txtCompanyName" data-bind="value:CompanyName" class="form-control Commaampersand Textlengthpast" maxlength="50">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle !important">
+                        Address Line 1
+                    </td>
+                    <td>
+                        <input type="text" id="txtCompanyAddress" data-bind="value:CompanyAddress" class="form-control CommaampersandAddress Textlengthpast" maxlength="50" placeholder="Line 1">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle !important"></td>
+                    <td>
+                        <input type="text" id="txtCompanyAddress2" data-bind="value:CompanyAddressLine2" class="form-control CommaampersandAddress Textlengthpast" maxlength="82" placeholder="Line 2">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle !important">
+                        Mobile Nimber
+                    </td>
+                    <td>
+                        <input type="text" id="txtTelephoneNumber" data-bind="value:TelephoneNumber" @*onblur="return checkphoneno();"*@ class="form-control phoneFormat1"
+                               @*class="form-control phone_us"*@>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle !important">
+                        Email Address<span style="color: red">*</span>
+                    </td>
+                    <td>
+                        <input type="text" id="txtEmailAddress" data-bind="value:EmailAddress" @*onblur="checkEmail();"*@ class="form-control emailB3 Textlengthpast" @*class="email"*@ @*class="form-control emailId"*@ />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle !important">
+                        State Certification #
+                    </td>
+                    <td>
+                        <input type="text" id="txtStateCertification" data-bind="value:StateCertificationNo" class="form-control Textlengthpast" maxlength="50">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle !important;">
+                        or State License #
+                    </td>
+                    <td>
+                        <input type="text" id="txtStateLicense" data-bind="value:StateLicenseNo" class="form-control" maxlength="50">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle !important">
+                        or Other (describe)
+                    </td>
+                    <td>
+                        <input type="text" id="txtAppraiserOther" data-bind="value:Other" class="form-control Textlengthpast" maxlength="25">
+                    </td>
+                </tr>
+                <input type="text" id="txtState" onblur="return checkStateNo()" maxlength="20"
+                       class="form-control" style="display: none;">
+                <tr>
+                    <td style="vertical-align: middle !important">
+                        State #
+                    </td>
+                    <td>
+                        <input type="text" id="txtStateNumber" data-bind="value:StateNo" class="form-control" maxlength="20">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle !important">
+                        State
+                    </td>
+                    <td>
+                        <select id="ddlState" @*data-bind="value: Quality"*@ style="height: 30px;width: 100%;" class="form-control"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle !important">
+                        Date Of Joined
+                    </td>
+                    <td>
+                        <input type="text" id="txtExpirationofLicense" data-bind="value:ExpirationDateofCertificationorLicense" class="form-control"
+                               @*onblur="IsValidDate(this)"*@>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="vertical-align: middle !important">Federal Tax ID #</td>
+                    <td>
+                        <input type="text" id="txtFederalTaxNo" data-bind="value:FederalTaxNo" class="form-control" maxlength="50">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle !important">Employee ID #</td>
+                    <td>
+                        <input type="text" id="txtEmployeeNo" data-bind="value:EmployeeId" class="form-control" maxlength="50">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="vertical-align: top !important">
+                        Company Logo
+                    </td>
+                    <td>
+                        <input type="file" id="FleUldLogo" name="file" data-bind="event:{ change: $parent.fileUpload }" @*onchange="OnUpload()"*@ class="form-control" data-buttonname="btn-primary" data-buttontext="Upload Logo" />
+                        <label id="lblLogoPath"></label>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top !important"></td>
+                    <td>
+                        <img id="imgCompanyLogo" class="img-thumbnail fa fa-3x" data-bind="attr:{src: LogoSource},visible:LogoSource().length>0" style=" Width:200px; height :100px; margin-top :20px;" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top !important"></td>
+                    <td>
+                        <input type="button" id="Appbtnsubmit" value="Save" class="btn btn-sm btn-primary" data-bind="event:{ click: $parent.submit }" width="56">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="~/Scripts/Step4/Step4.js"></script>

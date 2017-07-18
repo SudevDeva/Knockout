@@ -1,0 +1,26 @@
+﻿<h2>Step1</h2>
+<title>Knockout + File API</title>
+<style type="text/css">
+    img.thumb {
+        max-width: 100px;
+        max-height: 100px;
+    }
+</style>
+
+<body>
+    <h3>File Upload</h3>
+    <div id="fileUpload">
+        @*<div data-bind="with:File">*@
+            <div data-bind="foreach: { data: images }">
+                <div>
+                    <input type="file" accept="image/*" data-bind="file: imageFile, fileObjectURL: imageObjectURL, fileBinaryData: imageBinary" />
+                    <div data-bind="if: imageObjectURL">
+                        <img class="thumb" data-bind="attr: { src: imageObjectURL }" />
+                    </div>  
+                </div>
+            @*</div>*@
+        </div>
+    </div>
+    <br />
+</body>
+<script src="~/Scripts/Step1/Step1.js"></script>
